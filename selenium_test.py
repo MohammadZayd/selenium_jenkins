@@ -14,7 +14,17 @@ chrome_options.add_argument("--window-size=1920,1080")  # Set viewport size
 driver = webdriver.Chrome(options=chrome_options)
 
 # Open a webpage
-driver.get("https://www.amazon.sa")
+driver.get("http://docs.brhsoft.com/documents")
+driver.implicitly_wait(10)
+
+input_name = driver.find_element(By.XPATH, value="//input[@formcontrolname='userName']")
+input_name.send_keys("admin@example.com")
+
+input_password = driver.find_element(By.XPATH, value="//input[@formcontrolname='password']")
+input_password.send_keys("12345678")
+
+submit_button = driver.find_element(By.XPATH, value="//button[@type='submit']")
+submit_button.click()
 time.sleep(5)  # Wait for the page to load
 
 # Take screenshot
