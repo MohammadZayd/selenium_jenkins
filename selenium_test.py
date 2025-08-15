@@ -16,6 +16,9 @@ driver = webdriver.Chrome(options=chrome_options)
 driver.get("https://aws.amazon.com/")
 time.sleep(5)  # Wait for the page to load
 
+# Make the browser full screen
+driver.fullscreen_window()
+
 # Take screenshot
 screenshot_path = os.path.join(os.getcwd(), "aws_screenshot.png")
 driver.save_screenshot(screenshot_path)
